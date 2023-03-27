@@ -12,4 +12,8 @@ export class AuthService {
     return this.http.post
     ("http://localhost:3000/api/v1/users/create", blog)
   }
+
+  login(user){
+    return this.http.post('http://localhost:3000/api/v1/users/login', user)
+  }
 }

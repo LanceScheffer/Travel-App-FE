@@ -1,0 +1,12 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 12.5rem 12.5rem 12.5rem 12.5rem;
+  grid-template-rows: auto;
+  row-gap: 10px;
+  column-gap: 5px;
+  padding-top: 50px;
+}
+
+.card {
+  width: 18rem;;
+}

@@ -1,0 +1,8 @@
+h1 {
+  margin-top: 2rem;
+  text-align: center;
+  font-family: Andale monospace;
+  outline-color: black;
+  color: rgb(22, 86, 224);
+  text-decoration: underline;
+}

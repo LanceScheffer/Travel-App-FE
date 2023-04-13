@@ -1,0 +1,48 @@
+<div class="container">
+  <h1>New Destination</h1>
+  <form [formGroup]="destinationForm"(ngSubmit)="submit({},$event)">
+    <div class="col-md-6 offset-md-3">
+      <div class="form-group">
+        <label for="location">Location:</label>
+        <input
+          type="text"
+          id= "location"
+          class="form-control"
+          formControlName="location"
+          required="text">
+      </div>
+    </div>
+
+      <div class="col-md-6 offset-md-3">
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea
+            type="text"
+            id= "description"
+            class="form-control"
+            formControlName="description">
+          </textarea>
+        </div>
+      </div>
+
+    <div class="col-md-6 offset-md-3">
+      <div class="form-group">
+        <label for="imagePath">Image URL:</label>
+        <input
+          type="text"
+          id= "imagePath"
+          class="form-control"
+          formControlName="imagePath"
+          placeholder="Copy and Paste image address"
+          #imagePath>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <img [src]="imagePath.value" class="img-responsive">
+      </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </form>
+</div>

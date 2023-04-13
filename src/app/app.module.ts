@@ -10,6 +10,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { DestinationsComponent } from './destinations/destinations.component';
 import { DestinationsListComponent } from './destinations/destinations-list/destinations-list.component';
+import { DestinationFormComponent } from './destinations/destination-form/destination-form.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { DestinationsListComponent } from './destinations/destinations-list/dest
     LoginComponent,
     HomeComponent,
     DestinationsComponent,
-    DestinationsListComponent
+    DestinationsListComponent,
+    DestinationFormComponent
   ],
   imports: [
     BrowserModule,

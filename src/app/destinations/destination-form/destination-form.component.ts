@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-
+import { DestinationListService } from '../destinations-list/destination-list.service';
+import { Destination } from '../destination.model';
 @Component({
   selector: 'app-destination-form',
   templateUrl: './destination-form.component.html',
@@ -12,14 +13,13 @@ export class DestinationFormComponent implements OnInit {
     description: new FormControl(''),
     imagePath: new FormControl('')
   })
-  constructor() { }
+  constructor( private destinationListService: DestinationListService) { }
 
   ngOnInit(): void {
   }
 
   submit(formObject,e){e.preventDefault()
-    this.destinationForm.value
-    console.log(this.destinationForm.value);
-
+    this.destinationListService.addDestinations((this.destinationForm.value) as Destination)
   }
+
 }

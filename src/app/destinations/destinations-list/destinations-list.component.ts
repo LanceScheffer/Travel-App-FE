@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Destination } from '../destination.model';
+import { Subscription } from 'rxjs';
+import { DestinationListService } from './destination-list.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-destinations-list',
@@ -7,13 +10,23 @@ import { Destination } from '../destination.model';
   styleUrls: ['./destinations-list.component.css']
 })
 export class DestinationsListComponent implements OnInit {
-  destinations: Destination[] = [
-    new Destination('A Test Destination', 'A description of the test destination', 'https://source.unsplash.com/500x500/?destination,vacation')
-  ];
+  destinations: Destination[] = [];
+  subscription: Subscription;
 
-  constructor() { }
+  constructor(private destinationListService: DestinationListService,
+              private router: Router,
+              private route: ActivatedRoute ) { }
 
   ngOnInit(): void {
+    this.destinations = this.destinationListService.getDestinations();
+    this.subscription = this.destinationListService.destinationsChanged
+      .subscribe(
+        (destinations: Destination[]) => {
+          console.log(destinations);
+
+          this.destinations = destinations;
+        }
+      );
   }
 
 }
